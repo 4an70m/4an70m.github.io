@@ -1,7 +1,44 @@
-<!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+	<head>
+		<link rel="stylesheet" href="style.css"/>
+		<title>TEAMPLAY</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script>
+		function getRandomInt(min, max){
+			  return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+			$(document).ready(function(){
+				var width = $(window).width();
+				setInterval(
+					function(){
+						$('#initial')
+							.clone()
+							.appendTo("#container")
+							.css({
+								display: 'inline',
+								left: getRandomInt(200, width-200) + "px"
+							})
+							.animate({
+								top: '100%',
+							},
+								10000,
+								'linear',
+								function() {
+									$(this).remove()
+							}
+			);
+				;},1000);
+			});
+		</script>
+	</head>
+	<body>
+		<audio autoplay="autoplay" loop="true">
+			 <source src="mus.wav">
+
+		</audio>
+		<div id="container">
+			<span class="block" id="initial" style="display: none;">&lt;?php bloginfo(<span class="shitred">"teamplay_directory"</span>); ? ></span>
+		</div>
+	</body>
 </html>
